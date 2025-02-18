@@ -1,13 +1,7 @@
 import { supabase } from "@/lib/supabaseClient";
 import RecipeDetailClient from "./RecipeDetailClient";
 
-type PageProps = {
-  params: {
-    id: string;
-  };
-};
-
-const RecipeDetailPage = async ({ params }: PageProps) => {
+const RecipeDetailPage = async ({ params }: { params: { id: string } }) => {
   const { id } = params;
 
   const { data: recipe, error } = await supabase
