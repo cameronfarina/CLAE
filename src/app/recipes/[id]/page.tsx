@@ -1,4 +1,3 @@
-// @ts-nocheck working on it
 import { supabase } from "@/lib/supabaseClient";
 import RecipeDetailClient from "./RecipeDetailClient";
 
@@ -7,6 +6,8 @@ type PageProps = {
     id: string;
   };
 };
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 
 const RecipeDetailPage = async ({ params }: PageProps) => {
   const { id } = params;
