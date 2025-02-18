@@ -7,7 +7,7 @@ type PageProps = {
   };
 };
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- Ignore error for now
 
 const RecipeDetailPage = async ({ params }: PageProps) => {
   const { id } = params;
