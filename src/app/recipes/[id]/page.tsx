@@ -1,15 +1,8 @@
 import { supabase } from "@/lib/supabaseClient";
 import RecipeDetailClient from "./RecipeDetailClient";
 
-type PageProps = {
-  params: {
-    id: string;
-  };
-};
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- Ignore error for now
-
-const RecipeDetailPage = async ({ params }: PageProps) => {
+// @ts-expect-error This is a server-only component
+const RecipeDetailPage = async ({ params }) => {
   const { id } = params;
 
   const { data: recipe, error } = await supabase

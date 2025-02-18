@@ -58,8 +58,6 @@ const RecipeListClient: React.FC<RecipeListClientProps> = ({ recipes }) => {
             imageUrl={recipe.image_url || "/placeholder.jpg"}
             title={recipe.title}
             description={recipe.description || ""}
-            prepTime={recipe.prep_time}
-            cookTime={recipe.cook_time}
             totalTime={recipe.total_time}
           />
         ))}
