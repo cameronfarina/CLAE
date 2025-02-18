@@ -53,7 +53,14 @@ const OrderedList = styled.ol`
 `;
 
 type RecipeDetailProps = {
-  recipe: any;
+  recipe: {
+    id: number;
+    title: string;
+    description: string;
+    image_url: string;
+    ingredients: string;
+    instructions: string;
+  };
 };
 
 const RecipeDetailClient: React.FC<RecipeDetailProps> = ({ recipe }) => {

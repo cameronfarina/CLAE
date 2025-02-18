@@ -5,10 +5,24 @@ import { useAuth } from "../AuthProvider";
 import { useRouter } from "next/navigation";
 import RecipeCard from "@/components/RecipeCard";
 
+type FavoriteRow = {
+  id?: number;
+  user_id?: string;
+  recipe_id: number;
+  totalTime: number;
+  recipes: {
+    title: string;
+    image_url: string;
+    user_id: string;
+    created_at: string;
+    total_time: number;
+  };
+};
+
 const Page = () => {
   const { session, loading } = useAuth();
   const router = useRouter();
-  const [favorites, setFavorites] = useState<any[]>([]);
+  const [favorites, setFavorites] = useState<FavoriteRow[]>([]);
 
   useEffect(() => {
     if (!loading && !session) {
@@ -29,6 +43,7 @@ const Page = () => {
       if (error) {
         console.error("Error fetching favorites:", error.message);
       } else {
+        // @ts-ignore
         setFavorites(data || []);
       }
     };

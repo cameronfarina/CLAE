@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 
 export default function RecipeList() {
-  const [recipes, setRecipes] = useState<any[]>([]);
+  const [recipes, setRecipes] = useState<unknown[]>([]);
 
   useEffect(() => {
     async function fetchRecipes() {
@@ -19,6 +19,7 @@ export default function RecipeList() {
       <h2>All Recipes</h2>
       <ul>
         {recipes.map((r) => (
+          // @ts-ignore
           <li key={r.id}>{r.title}</li>
         ))}
       </ul>

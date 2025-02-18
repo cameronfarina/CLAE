@@ -35,14 +35,8 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
   const router = useRouter();
   const [isFavorited, setIsFavorited] = useState(false);
 
-  useEffect(() => {
-    if (session && showFavoriteIcon) {
-      checkIfFavorited();
-    }
-  }, [session, showFavoriteIcon]);
-
   const checkIfFavorited = async () => {
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from("favorites")
       .select("id")
       .eq("user_id", session?.user.id)
@@ -53,6 +47,12 @@ const RecipeCard: React.FC<RecipeCardProps> = ({
       setIsFavorited(true);
     }
   };
+
+  useEffect(() => {
+    if (session && showFavoriteIcon) {
+      checkIfFavorited();
+    }
+  }, [session, showFavoriteIcon, checkIfFavorited]);
 
   const handleToggleFavorite = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
