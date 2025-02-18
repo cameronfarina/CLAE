@@ -43,7 +43,7 @@ const Page = () => {
       if (error) {
         console.error("Error fetching favorites:", error.message);
       } else {
-        // @ts-ignore
+        // @ts-expect-error data is not null
         setFavorites(data || []);
       }
     };

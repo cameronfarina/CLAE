@@ -19,7 +19,7 @@ export default function RecipeList() {
       <h2>All Recipes</h2>
       <ul>
         {recipes.map((r) => (
-          // @ts-ignore
+          // @ts-expect-error data is not null
           <li key={r.id}>{r.title}</li>
         ))}
       </ul>
