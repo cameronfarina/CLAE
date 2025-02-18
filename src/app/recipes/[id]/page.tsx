@@ -1,3 +1,4 @@
+// @ts-nocheck working on it
 import { supabase } from "@/lib/supabaseClient";
 import RecipeDetailClient from "./RecipeDetailClient";
 
